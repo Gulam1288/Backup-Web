@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-    .menu-button {
+   .menu-button {
         cursor: pointer;
         display: inline-block;
         -webkit-tap-highlight-color: transparent;
-	      user-select: none;
+	user-select: none;
     }
 
     .bar {
@@ -329,7 +329,10 @@
             z-index: 1;
             display: none;
         }
-
+        .active a{
+            color: blue;
+            z-index:1;
+        }
     </style>
     <title>Home Page</title>
     <link rel="icon" type="image/png" href="https://sites.ipagepro.com/minsky-cottone-cpas-pc/wp-content/uploads/sites/231/2022/12/google.png">
@@ -344,12 +347,11 @@
     <div class="side-menu">
         <ul>
               <li><p class="cross" id="closeMenu">X</p></li>
-            <li class="li"><a href="#"><strong>Home</strong></a></li>
-            <li class="li"><a href="#"><strong>About</strong></a></li>
-            <li class="li"><a href="#"><strong>Chatbot</strong></a></li>
-            <li class="li"><a href="#"><strong>Login</strong></a></li>
-            <li class="li"><a href="#"><strong>Logout</strong></a></li>
-
+            <li class="li home"><a href="index.html"><strong>Home</strong></a></li>
+            <li class="li about"><a href="about.html"><strong>About</strong></a></li>
+            <li class="li chatbot"><a href="chatbot.html"><strong>Chatbot</strong></a></li>
+             <li class="li login"><a href="login.html"><strong>Login</strong></a></li>
+            <li class="li logout"><a href="logout.html"><strong>Logout</strong></a></li>
         </ul>
 
     </div>
@@ -407,6 +409,22 @@
         this.style.left = "-350px";
         document.querySelector(".overlay").style.display = "none"; // Hide the overlay
     });
+    document.addEventListener("DOMContentLoaded", function () {
+    // Get the current page URL
+    var currentPage = window.location.href;
+
+    // Add the "active" class to the corresponding link based on the URL
+    if (currentPage.includes("index.html")) {
+        document.querySelector(".home").classList.add("active");
+    } else if (currentPage.includes("about.html")) {
+        document.querySelector(".about").classList.add("active");
+    } else if (currentPage.includes("chatbot.html")) {
+        document.querySelector(".chatbot").classList.add("active");
+    } else if (currentPage.includes("login.html")) {
+        document.querySelector(".login").classList.add("active");
+    }
+});
+
 </script>
 </body>
 </html>
