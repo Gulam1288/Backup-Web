@@ -290,7 +290,7 @@ function login() {
             // Create a new element for the redirection message with a link
             var redirectMessage = document.createElement('p');
             redirectMessage.style.color = 'green';
-            redirectMessage.innerHTML = 'Redirecting to the project page.<br>If not redirected, <a href="https://miniproject-chatbot-vert.vercel.app/index.html" target="_blank" style="text-decoration: none;">click here</a>.';
+            redirectMessage.innerHTML = 'Redirecting to the project page.<br>If not redirected, <a href="chat.html" target="_blank" style="text-decoration: none;">click here</a>.';
             document.getElementById('message').appendChild(redirectMessage);
 
             // Clear input fields
@@ -299,7 +299,7 @@ function login() {
             document.getElementById('signup-username').value = '';
             document.getElementById('signup-password').value = '';
             setTimeout(function () {
-                window.location.href = 'https://miniproject-chatbot-vert.vercel.app/index.html';
+                window.location.href = 'chatbot.html';
             }, 2000);
             setTimeout(function () {
                 document.getElementById('message').innerText = '';
