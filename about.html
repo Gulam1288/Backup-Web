@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"">
+    <title>About Us</title>
+    <link rel="icon" type="image/png" href="https://sites.ipagepro.com/minsky-cottone-cpas-pc/wp-content/uploads/sites/231/2022/12/google.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url(https://images.freecreatives.com/wp-content/uploads/2016/04/Blurred-Web-Backgrounds-HD-Wallpaper.jpg);
+            background-size: cover;
+	    background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+            z-index: -1;
+            animation: backgroundAnimation 2s linear infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                transform: translateX(-100%);
+                background-size: 100% 100%;
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(100%);
+                background-size: 100% 100%;
+                opacity: 1;
+            }
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            animation: moveText 1s ease infinite alternate;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .developer {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .developer h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .developer p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        .developer:hover {
+            background-color: #f2f2f2;
+            transform: scale(1.01);
+        }
+
+        .return-home {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .return-home a {
+            text-decoration: none;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .return-home a:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+            .developer h2 {
+                font-size: 19px;
+            }
+            .developer p {
+                font-size: 16px;
+            }
+            .developer {
+                margin-bottom: 15px;
+            }
+            .return-home {
+                margin-bottom: 20px;
+            }
+        }
+
+        .developer {
+            position: relative;
+        }
+
+        .social-icons {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: row;
+            margin-right: 580px;
+	    -webkit-tap-highlight-color: transparent;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 70px 30px 5px 5px;
+        }
+
+        .contacts {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: row;
+		margin-right: 670px; 
+		margin-top: 20px;
+        }
+
+        @media (max-width: 768px),(max-width:1024px){
+            .contacts {
+                margin-right: 0; /* Adjust margin for mobile view */
+                position: relative; /* Reset position for mobile view */
+            }
+
+            .social-icons {
+                margin-right: 0; /* Adjust margin for mobile view */
+                position: relative; /* Reset position for mobile view */
+                display: flex;
+                flex-direction: row; /* Stack social icons vertically for mobile view */
+                margin-top: 5px; /* Add some spacing between social icons and contacts */
+            }
+
+            .social-icon {
+                margin: 5px;
+            }
+        }
+        
+        .menu-button {
+        cursor: pointer;
+        display: inline-block;
+        -webkit-tap-highlight-color: transparent;
+	    user-select: none;
+	    float: left;
+	    margin-top: 15px;
+	    margin-bottom: 15px;
+    }
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 6px 0;
+        margin-left: 10px;
+    }
+    .bar:hover{
+        background-color: #d6d6d6;
+    }
+
+    .side-menu {
+        position: fixed;
+        top: 0;
+        left: -350px;
+        width: 250px;
+        height: 100%;
+        background: #333;
+        color: #fff;
+        transition: left 0.3s;
+        padding: 10px 0;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .side-menu ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .li {
+        margin: 10px 0;
+    }
+
+    .side-menu a {
+        text-decoration: none;
+        display: block; /* Make menu items a block element */
+        color: #fff;
+        background: skyblue;
+        width: 40%;
+        height: 60%;
+        padding: 15px;
+        border-radius: 10px;
+        margin-left: 50px;
+        font-family: Arial;
+        -webkit-tap-highlight-color: transparent;
+	    user-select: none;
+    }
+    .side-menu a:hover{
+        background: #5E819D;
+    }
+    .cross {
+            background: none; 
+            width: 15%; 
+            height: 50%; 
+            padding: 10px; 
+            display: inline-block; 
+            margin-left: 245px;
+            border: 4px solid #333;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 10px;
+            margin-top: 0px;
+            font-weight: bold;
+            font-size: 25px;
+            color: white;
+            -webkit-tap-highlight-color: transparent;
+	        user-select: none;        
+        }
+        .cross:hover{
+            background: #334;
+        }
+        /*styles for the overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1;
+            display: none;
+        }
+        .active a{
+            color: blue;
+            z-index:1;
+        }
+        .div-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+   <div class="div-container">
+    <div class="menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="side-menu">
+        <ul>
+              <li><p class="cross" id="closeMenu">X</p></li>
+            <li class="li home"><a href="index.html"><strong>Home</strong></a></li>
+            <li class="li about"><a href="about.html"><strong>About</strong></a></li>
+            <li class="li chatbot"><a href="chatbot.html"><strong>Chatbot</strong></a></li>
+             <li class="li login"><a href="login.html"><strong>Login</strong></a></li>
+            <li class="li logout"><a href="index.html"><strong>Logout</strong></a></li>
+        </ul>
+    </div>
+    <header><h1>About</h1></header>
+</div>
+<div class="overlay"></div>
+    <div class="container">
+        <div class="developer">
+            <h2>Balasani Gayathri</h2>
+            <p>Department: Information Technology</p>
+            <p>Year: 3rd</p>
+		<div class="contacts">
+                <h4>Contact 🔗</h4>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://pngimg.com/uploads/instagram/instagram_PNG10.png" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://www.pngkey.com/png/full/2-27646_twitter-logo-png-transparent-background-logo-twitter-png.png" alt="Twitter" class="social-icon">
+                </a>
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://logodix.com/logo/517451.png" alt="Gmail" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="developer">
+            <h2>Aleti Hrushikesh</h2>
+            <p>Department: Information Technology</p>
+            <p>Year: 3rd</p>
+		<div class="contacts">
+                <h4>Contact 🔗</h4>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://pngimg.com/uploads/instagram/instagram_PNG10.png" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://www.pngkey.com/png/full/2-27646_twitter-logo-png-transparent-background-logo-twitter-png.png" alt="Twitter" class="social-icon">
+                </a>
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://logodix.com/logo/517451.png" alt="Gmail" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="developer">
+            <h2>Gulam Dastageer</h2>
+            <p>Department: Information Technology</p>
+            <p>Year: 3rd</p>
+		<div class="contacts">
+                <h4>Contact 🔗</h4>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://pngimg.com/uploads/instagram/instagram_PNG10.png" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://www.pngkey.com/png/full/2-27646_twitter-logo-png-transparent-background-logo-twitter-png.png" alt="Twitter" class="social-icon">
+                </a>
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://logodix.com/logo/517451.png" alt="Gmail" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="developer">
+            <h2>Kalavari Shiva Kumar</h2>
+            <p>Department: Information Technology</p>
+            <p>Year: 3rd</p>
+		<div class="contacts">
+                <h4>Contact 🔗</h4>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://pngimg.com/uploads/instagram/instagram_PNG10.png" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://github.com/404" target="_blank" title="Currently Developer Profiles Unavailable">
+                    <img src="https://www.pngkey.com/png/full/2-27646_twitter-logo-png-transparent-background-logo-twitter-png.png" alt="Twitter" class="social-icon">
+                </a>
+                <a href="https://github.com/404" title="Currently Developer Profiles Unavailable">
+                    <img src="https://logodix.com/logo/517451.png" alt="Gmail" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown') {
+                window.scrollBy(0, 100);
+            }
+            if (e.key === 'ArrowUp') {
+                window.scrollBy(0, -100);
+            }
+        });
+                    document.querySelector("#closeMenu").addEventListener("click", function () {
+        document.querySelector(".side-menu").style.left = "-350px";
+        document.querySelector(".overlay").style.display = "none"; // Hide the overlay
+    });
+
+    document.querySelector(".menu-button").addEventListener("click", function () {
+        var overlay = document.querySelector(".overlay");
+        if (document.querySelector(".side-menu").style.left === "0px" || document.querySelector(".side-menu").style.left === "") {
+            document.querySelector(".side-menu").style.left = "-350px";
+            overlay.style.display = "none"; // Hide the overlay
+        } else {
+            document.querySelector(".side-menu").style.left = "0px";
+            overlay.style.display = "block"; // Show the overlay
+        }
+    });
+
+    document.querySelector("#closeMenu").addEventListener("click", function () {
+        this.style.left = "-350px";
+        document.querySelector(".overlay").style.display = "none"; // Hide the overlay
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+    // Get the current page URL
+    var currentPage = window.location.href;
+
+    // Add the "active" class to the corresponding link based on the URL
+    if (currentPage.includes("index.html")) {
+        document.querySelector(".home").classList.add("active");
+    } else if (currentPage.includes("about.html")) {
+        document.querySelector(".about").classList.add("active");
+    } else if (currentPage.includes("chatbot.html")) {
+        document.querySelector(".chatbot").classList.add("active");
+    } else if (currentPage.includes("login.html")) {
+        document.querySelector(".login").classList.add("active");
+    }
+});
+    </script>
+</body>
+</html>
