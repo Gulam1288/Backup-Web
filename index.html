@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en-IN" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+    .menu-button {
+        cursor: pointer;
+        display: inline-block;
+        -webkit-tap-highlight-color: transparent;
+	      user-select: none;
+    }
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 6px 0;
+        margin-left: 5px;
+    }
+    .bar:hover{
+        background-color: #d6d6d6;
+    }
+
+    .side-menu {
+        position: fixed;
+        top: 0;
+        left: -350px;
+        width: 250px;
+        height: 100%;
+        background: #333;
+        color: #fff;
+        transition: left 0.3s;
+        padding: 10px 0;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .side-menu ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .li {
+        margin: 10px 0;
+    }
+
+    .side-menu a {
+        text-decoration: none;
+        display: block; /* Make menu items a block element */
+        color: #fff;
+        background: skyblue;
+        width: 40%;
+        height: 60%;
+        padding: 15px;
+        border-radius: 10px;
+        margin-left: 50px;
+        font-family: Arial;
+        -webkit-tap-highlight-color: transparent;
+	    user-select: none;
+    }
+    .side-menu a:hover{
+        background: #5E819D;
+    }
+        body {
+            background: url(https://i.ibb.co/q9mygMq/background.jpg); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        .body-home {
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 20px;
+        }
+        .div-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0,0,0.3);
+        }
+        .nav-link {
+            margin-left: 10px;
+            margin-right: 10px;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        .container-slide {
+            text-align: center;
+            padding: 100px;
+        }
+        .container-slide h1 {
+            font-size: 36px;
+        }
+        .container-slide p {
+            font-size: 18px;
+        }
+        .btn-primary {
+            background-color: #007BFF;
+            border-color: #007BFF;
+            font-weight: bold;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s, border-color 0.3s;
+            text-decoration: none;
+            color: #fff;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .ring {
+            display: inline-block;
+            background-color: transparent;
+            border: 4px solid #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+        /* Bouncing arrow animation */
+        .bounce {
+            animation: bounce 1s infinite;
+            z-index: 1;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        .door-container {
+            display: flex;
+            felx-direction: row;
+            margin-bottom: 0px;
+            align-items: center;
+        }
+        .door {
+            width: 50%;
+            height: 200px;
+            margin: 5px auto 0px auto;
+            position: relative;
+            overflow: hidden;
+            align-items: center;
+        }
+        .ball {
+            width: 50%;
+            height: 80px;
+            position: absolute;
+            transition: transform 0.5s;
+        }
+        .left-ball {
+            top: 0;
+            left: 0;
+            right: 0;
+            background: black;
+            display: inline-block;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            object-fit: cover;
+            border-top-left-radius: 90%;
+            border-bottom-left-radius: 90%;
+            border-top-right-radius: 90%;
+            border-bottom-right-radius: 90%;
+            transform: scaleX(-1);
+            z-index: 1;
+        }
+        .right-ball {
+            top: 0;
+            right: 0;   
+            background: black;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: inline-block;
+            object-fit: cover;
+            border-top-right-radius: 90%;
+            border-bottom-right-radius: 90%;
+            border-top-left-radius: 90%;
+            border-bottom-left-radius: 90%;
+            z-index: 1;
+        }
+        .sharingan0 {
+            width: 100px; 
+            position: absolute;
+            height: 70px; 
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 2px 140px 2px 30px;
+            transform: scaleX(-1);
+            z-index: 1;
+        }
+        .sharingan1 {
+            position: absolute;
+            width: 100px; 
+            height: 70px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            margin: 2px 155px 2px 35px; 
+            transform: scaleX(-1);
+            z-index: 1;
+        }
+        .door-content {
+            width: 100%;
+            height: 40%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scaleX(0);
+            transform-origin: center;
+            color: #06b6ff;
+            transition: transform 0.5s;
+            font-weight: bold;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+        }
+        .door:hover .left-ball {
+            transform: translateX(-100%);
+        }
+        .door:hover .right-ball {
+            transform: translateX(100%);
+        }
+        .door:hover .door-content {
+            transform: scaleX(1);
+        }
+        @media (max-width: 768px) {
+            .door {
+                height: 100px;
+            }
+            .ball {
+                height: 40px;
+            }
+            .door-content {
+                font-size: 8px;
+            }
+            .sharingan0 {
+                width: 50px; 
+                height: 30px; 
+                border-radius: 50%; 
+                object-fit: cover; 
+                margin: 2px 40px 2px 20px;
+                z-index: 1;
+            }
+            .sharingan1 {
+                width: 50px; 
+                height: 30px; 
+                border-radius: 50%; 
+                object-fit: cover; 
+                margin: 2px 85px 2px 20px; 
+                transform: scaleX(-1);
+                z-index: 1;
+            }
+        }
+        @media (min-width: 770px) and (max-width: 1024px) {
+            .door {
+                height: 120px;
+            }
+            .ball {
+                height: 60px;
+            }
+            .door-content {
+                font-size: 10px;
+            }
+            .sharingan0 {
+                width: 70px; 
+                height: 40px; 
+                border-radius: 50%; 
+                object-fit: cover; 
+                margin: 2px 40px 2px 20px;
+                z-index: 1;
+            }
+            .sharingan1 {
+                width: 70px; 
+                height: 40px; 
+                border-radius: 50%; 
+                object-fit: cover; 
+                margin: 2px 85px 2px 20px; 
+                transform: scaleX(-1);
+                z-index: 1;
+            }
+        }
+        .cross {
+            background: none; 
+            width: 15%; 
+            height: 50%; 
+            padding: 10px; 
+            display: inline-block; 
+            margin-left: 245px;
+            border: 4px solid #333;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 10px;
+            margin-top: 0px;
+            font-weight: bold;
+            font-size: 25px;
+            color: white;
+            -webkit-tap-highlight-color: transparent;
+	        user-select: none;        
+        }
+        .cross:hover{
+            background: #334;
+        }
+        /*styles for the overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1;
+            display: none;
+        }
+
+    </style>
+    <title>Home Page</title>
+    <link rel="icon" type="image/png" href="https://sites.ipagepro.com/minsky-cottone-cpas-pc/wp-content/uploads/sites/231/2022/12/google.png">
+</head>
+<div class="div-container">
+<br>
+    <div class="menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="side-menu">
+        <ul>
+              <li><p class="cross" id="closeMenu">X</p></li>
+            <li class="li"><a href="#"><strong>Home</strong></a></li>
+            <li class="li"><a href="#"><strong>About</strong></a></li>
+            <li class="li"><a href="#"><strong>Chatbot</strong></a></li>
+            <li class="li"><a href="#"><strong>Login</strong></a></li>
+            <li class="li"><a href="#"><strong>Logout</strong></a></li>
+
+        </ul>
+
+    </div>
+    <h3><strong class="ring"><span></span>AI Powered ChatBot</strong></h3><a class="nav-link" href="#"><img src="https://pa1.narvii.com/7122/e5174313920922a5e43f039a6b02f553524408b5r1-300-300_hq.gif" alt="Hi Gif" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 5px;"></a>
+</div>
+<div class="overlay"></div> <
+<div class="container-slide">
+    <h1>Welcome to MyBot</h1>
+    <p>Your friendly AI bot ready to assist you!</p>
+    <br/>
+    <a href="chatbot.html" class="btn btn-primary btn-lg mt-4">Let's Go!</a>
+    <br/><br/>
+    <p class="bounce">Click the button above to try the ChatBot <span style="font-size: 20px;">&uarr;</span></p>
+</div>
+<div class="door-container">
+    <div class="door">
+         <div class="ball left-ball">
+         <img class="sharingan0" src="https://i.gifer.com/origin/3a/3aa063615f79f006595111d1496bf167_w200.gif" alt="sharingan Gif">
+     </div>
+         <div class="ball right-ball">
+         <img class="sharingan1" src="https://i.gifer.com/origin/3a/3aa063615f79f006595111d1496bf167_w200.gif" alt="sharingan Gif">
+     </div>
+         <div class="door-content">
+          <h2>A project by MLRIT Students</h2>
+         </div>
+    </div>
+</div>
+<script>
+        // Enable scrolling and keyboard navigation
+        window.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown') {
+                window.scrollBy(0, 100);
+            }
+            if (e.key === 'ArrowUp') {
+                window.scrollBy(0, -100);
+            }
+        });
+            document.querySelector("#closeMenu").addEventListener("click", function () {
+        document.querySelector(".side-menu").style.left = "-350px";
+        document.querySelector(".overlay").style.display = "none"; // Hide the overlay
+    });
+
+    document.querySelector(".menu-button").addEventListener("click", function () {
+        var overlay = document.querySelector(".overlay");
+        if (document.querySelector(".side-menu").style.left === "0px" || document.querySelector(".side-menu").style.left === "") {
+            document.querySelector(".side-menu").style.left = "-350px";
+            overlay.style.display = "none"; // Hide the overlay
+        } else {
+            document.querySelector(".side-menu").style.left = "0px";
+            overlay.style.display = "block"; // Show the overlay
+        }
+    });
+
+    document.querySelector("#closeMenu").addEventListener("click", function () {
+        this.style.left = "-350px";
+        document.querySelector(".overlay").style.display = "none"; // Hide the overlay
+    });
+</script>
+</body>
+</html>
