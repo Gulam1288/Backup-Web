@@ -7,9 +7,11 @@
     <style>
    .menu-button {
         cursor: pointer;
-        display: inline-block;
+        display: block;
         -webkit-tap-highlight-color: transparent;
 	user-select: none;
+	float: left;
+	margin-left: 10px;
     }
 
     .bar {
@@ -17,7 +19,6 @@
         height: 3px;
         background-color: white;
         margin: 6px 0;
-        margin-left: 5px;
     }
     .bar:hover{
         background-color: #d6d6d6;
@@ -64,7 +65,7 @@
         background: #5E819D;
     }
         body {
-            background: url(https://i.ibb.co/q9mygMq/background.jpg); 
+            background: black; 
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -75,13 +76,14 @@
         }
         .body-home {
             background-color: rgba(0, 0, 0, 0.5); 
-            padding: 20px;
+            padding: 10px;
         }
         .div-container {
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            background-color: rgba(0, 0,0,0.3);
+            background-color: purple;
         }
         .nav-link {
             margin-left: 10px;
@@ -90,24 +92,27 @@
             font-weight: bold;
             text-decoration: none; 
             -webkit-tap-highlight-color: transparent;
+            margin: auto 10px auto 2px;
         }
         .container-slide {
-            text-align: center;
-            padding: 100px;
+            padding: 15px;
         }
         .container-slide h1 {
             font-size: 36px;
         }
         .container-slide p {
-            font-size: 18px;
+            font-size: 20px;
+        }
+        .container-slide .bounce{
+            font-size: 15px;
         }
         .btn-primary {
             background-color: #007BFF;
             border-color: #007BFF;
             font-weight: bold;
-            padding: 15px 30px;
+            padding: 8px 23px;
             font-size: 18px;
-            border-radius: 25px;
+            border-radius: 18px;
             transition: background-color 0.3s, border-color 0.3s;
             text-decoration: none;
             color: #fff;
@@ -139,160 +144,6 @@
             }
             60% {
                 transform: translateY(-10px);
-            }
-        }
-        .door-container {
-            display: flex;
-            felx-direction: row;
-            margin-bottom: 0px;
-            align-items: center;
-        }
-        .door {
-            width: 50%;
-            height: 200px;
-            margin: 5px auto 0px auto;
-            position: relative;
-            overflow: hidden;
-            align-items: center;
-        }
-        .ball {
-            width: 50%;
-            height: 80px;
-            position: absolute;
-            transition: transform 0.5s;
-        }
-        .left-ball {
-            top: 0;
-            left: 0;
-            right: 0;
-            background: black;
-            display: inline-block;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            object-fit: cover;
-            border-top-left-radius: 90%;
-            border-bottom-left-radius: 90%;
-            border-top-right-radius: 90%;
-            border-bottom-right-radius: 90%;
-            transform: scaleX(-1);
-            z-index: 1;
-        }
-        .right-ball {
-            top: 0;
-            right: 0;   
-            background: black;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            display: inline-block;
-            object-fit: cover;
-            border-top-right-radius: 90%;
-            border-bottom-right-radius: 90%;
-            border-top-left-radius: 90%;
-            border-bottom-left-radius: 90%;
-            z-index: 1;
-        }
-        .sharingan0 {
-            width: 100px; 
-            position: absolute;
-            height: 70px; 
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 2px 140px 2px 30px;
-            transform: scaleX(-1);
-            z-index: 1;
-        }
-        .sharingan1 {
-            position: absolute;
-            width: 100px; 
-            height: 70px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            margin: 2px 155px 2px 35px; 
-            transform: scaleX(-1);
-            z-index: 1;
-        }
-        .door-content {
-            width: 100%;
-            height: 40%;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: scaleX(0);
-            transform-origin: center;
-            color: #06b6ff;
-            transition: transform 0.5s;
-            font-weight: bold;
-            border-top-left-radius: 100px;
-            border-bottom-left-radius: 100px;
-            border-top-right-radius: 100px;
-            border-bottom-right-radius: 100px;
-        }
-        .door:hover .left-ball {
-            transform: translateX(-100%);
-        }
-        .door:hover .right-ball {
-            transform: translateX(100%);
-        }
-        .door:hover .door-content {
-            transform: scaleX(1);
-        }
-        @media (max-width: 768px) {
-            .door {
-                height: 100px;
-            }
-            .ball {
-                height: 40px;
-            }
-            .door-content {
-                font-size: 8px;
-            }
-            .sharingan0 {
-                width: 50px; 
-                height: 30px; 
-                border-radius: 50%; 
-                object-fit: cover; 
-                margin: 2px 40px 2px 20px;
-                z-index: 1;
-            }
-            .sharingan1 {
-                width: 50px; 
-                height: 30px; 
-                border-radius: 50%; 
-                object-fit: cover; 
-                margin: 2px 85px 2px 20px; 
-                transform: scaleX(-1);
-                z-index: 1;
-            }
-        }
-        @media (min-width: 770px) and (max-width: 1024px) {
-            .door {
-                height: 120px;
-            }
-            .ball {
-                height: 60px;
-            }
-            .door-content {
-                font-size: 10px;
-            }
-            .sharingan0 {
-                width: 70px; 
-                height: 40px; 
-                border-radius: 50%; 
-                object-fit: cover; 
-                margin: 2px 40px 2px 20px;
-                z-index: 1;
-            }
-            .sharingan1 {
-                width: 70px; 
-                height: 40px; 
-                border-radius: 50%; 
-                object-fit: cover; 
-                margin: 2px 85px 2px 20px; 
-                transform: scaleX(-1);
-                z-index: 1;
             }
         }
         .cross {
@@ -333,12 +184,73 @@
             background-color: #1e90ff;
             z-index:1;
         }
+                .footer {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer p {
+            font-size: 16px;
+        }
+        .info-section {
+            background: maroon;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .info-section h2 {
+            font-size: 24px;
+            color: #fff;
+        }
+        .info-section p {
+            font-size: 18px;
+            color: #ddd;
+        }
+        .image-gallery {
+            width: 100%;
+            text-align: center;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .large-image {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            justify-content: center;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .gates {
+            border-radius: 5px;
+            border: 5px solid black;
+            display: flex;
+            padding: 5px;
+            margin: 0;
+            background: black;
+        }
     </style>
     <title>Home Page</title>
     <link rel="icon" type="image/png" href="https://sites.ipagepro.com/minsky-cottone-cpas-pc/wp-content/uploads/sites/231/2022/12/google.png">
 </head>
+<body>
 <div class="div-container">
-<br>
     <div class="menu-button">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -355,7 +267,7 @@
         </ul>
 
     </div>
-    <h3><strong class="ring"><span></span>AI Powered ChatBot</strong></h3>
+    <h3><strong class="ring"><span></span>Smart ChatBot</strong></h3>
     <a class="nav-link" href="#"><img src="https://pa1.narvii.com/7122/e5174313920922a5e43f039a6b02f553524408b5r1-300-300_hq.gif" alt="Hi Gif" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 5px;"></a>
 </div>
 <div class="overlay"></div>
@@ -367,18 +279,26 @@
     <br/><br/>
     <p class="bounce">Click the button above to try the ChatBot <span style="font-size: 20px;">&uarr;</span></p>
 </div>
-<div class="door-container">
-    <div class="door">
-         <div class="ball left-ball">
-         <img class="sharingan0" src="https://i.gifer.com/origin/3a/3aa063615f79f006595111d1496bf167_w200.gif" alt="sharingan Gif">
-     </div>
-         <div class="ball right-ball">
-         <img class="sharingan1" src="https://i.gifer.com/origin/3a/3aa063615f79f006595111d1496bf167_w200.gif" alt="sharingan Gif">
-     </div>
-         <div class="door-content">
-          <h2>A project by MLRIT Students</h2>
-         </div>
+<div class="gates">
+    <div class="image-gallery">
+        <img id="largeImage" class="large-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbVetUcmBVWjvIzxQNWKHvkBPZx5-sZI4lzw&usqp=CAU" alt="Large Image">
+        <div class="thumbnail-images">
+            <img class="thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbVetUcmBVWjvIzxQNWKHvkBPZx5-sZI4lzw&usqp=CAU" alt="Thumbnail 1" onclick="changeImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbVetUcmBVWjvIzxQNWKHvkBPZx5-sZI4lzw&usqp=CAU')">
+            <img class="thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoZwSq7JetLJzjjfmbSisiT-388lRpdozlZg&usqp=CAU" alt="Thumbnail 2" onclick="changeImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoZwSq7JetLJzjjfmbSisiT-388lRpdozlZg&usqp=CAU')">
+            <img class="thumbnail" src="https://www.radware.com/RadwareSite/MediaLibraries/Images/Cyberpedia/Bot%20Manager/types-of-bots.jpg" alt="Thumbnail 3" onclick="changeImage('https://www.radware.com/RadwareSite/MediaLibraries/Images/Cyberpedia/Bot%20Manager/types-of-bots.jpg')">
+        </div>
     </div>
+</div>
+<div class="info-section">
+    <h2>About Project</h2>
+    <p>We are a team of passionate students dedicated to creating innovative projects for others and ourselves.</p>
+</div>
+<div class="info-section">
+    <h2>Contact Us</h2>
+    <p>Feel free to reach out to us for any inquiries.</p>
+</div>
+<div class="footer">
+    <p>MLRIT MINIPROJECT 2023</p>
 </div>
 <script>
         // Enable scrolling and keyboard navigation
@@ -425,7 +345,10 @@
         document.querySelector(".login").classList.add("active");
     }
 });
-
+function changeImage(imageUrl) {
+            var largeImage = document.getElementById("largeImage");
+            largeImage.src = imageUrl;
+        }
 </script>
 </body>
 </html>
