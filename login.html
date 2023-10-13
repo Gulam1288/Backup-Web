@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        html,body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
         body {
             background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIRHjiafkyo0kbeAPrbRv6XzIY7dppgaFX6w&usqp=CAU); 
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             text-align: center;
+            display: flex;
+            flex-direction: column;
         }
         .body-home {
             background-color: rgba(0, 0, 0, 0.5); 
@@ -19,7 +28,6 @@
         }
         .div-container {
             display: flex;
-	    width: 100%;
             justify-content: left;
             background-color: purple;
             color: white;
@@ -64,10 +72,10 @@
         
         .menu-button {
             cursor: pointer;
-            display: block;
+            display: inline-block;
             -webkit-tap-highlight-color: transparent;
-	    user-select: none;
-	    background: none;
+	          user-select: none;
+	          background: none;
          }
 
     .bar {
@@ -116,7 +124,7 @@
         margin-left: 50px;
         font-family: Arial;
         -webkit-tap-highlight-color: transparent;
-	user-select: none;
+	    user-select: none;
     }
     .side-menu a:hover{
         background: #5E819D;
@@ -161,6 +169,28 @@
             z-index:1;
         }
         
+        .footer {
+            height: 120px;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .footer p {
+            font-size: 16px;
+        }
+        
+        .social-media a {
+            text-decoration: none;
+            color: white;
+            padding: 0; /* Remove padding */
+            margin: 0 2px; /* Add space between icons */
+   
+        }
+        main {
+          flex: 1;
+        }
     </style>
 </head>
 <body>
