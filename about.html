@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0maximum-scale=1.0, user-scalable=0">
     <title>About Us</title>
     <link rel="icon" type="image/png" href="https://sites.ipagepro.com/minsky-cottone-cpas-pc/wp-content/uploads/sites/231/2022/12/google.png">
+    
     <style>
-        body {
+                body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: brown;
+            background: white;
             background-size: cover;
         }
 
@@ -256,6 +257,7 @@
         .cross:hover{
             background: #334;
         }
+        
         /*styles for the overlay */
         .overlay {
             position: fixed;
@@ -278,6 +280,122 @@
             align-items: center;
             justify-content: space-between;
             background: purple;
+        }
+        /* FAQ Section */
+        .faq {
+            margin-top: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .faq-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-item {
+            cursor: pointer;
+            margin: 15px 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .faq-question::before {
+            content: '>';
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            display: none;
+            font-size: 16px;
+            color: #777;
+            web
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        /* CSS to change ">" to "v" when FAQ answer is expanded */
+.faq-item.active .faq-question::before {
+    content: 'v';
+}
+        /* Comment Section */
+        .comments {
+            margin-top: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .comments h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        #comment-form {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #comment-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #comment-input:focus {
+            outline: none;
+            border-color: #1e90ff;
+        }
+
+        #comment-form button {
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        #comment-form button:hover {
+            background-color: #0071cc;
+        }
+
+        .comment-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            max-height: 250px;
+            overflow: auto;
+        }
+
+        .comment-list li {
+            font-size: 16px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        
+        .footer {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer p {
+            font-size: 16px;
         }
     </style>
 </head>
@@ -380,6 +498,36 @@
             </div>
         </div>
     </div>
+
+    <div class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item">
+                <span class="faq-question">What is this website about?</span>
+                <div class="faq-answer">This website provides information about our development team.</div>
+            </li>
+            <li class="faq-item">
+                <span class="faq-question">How can I contact the developers?</span>
+                <div class="faq-answer">You can contact the developers through the provided social media links.</div>
+            </li>
+            <!-- Add more FAQ items similarly -->
+        </ul>
+    </div>
+
+    <!-- Comment Section -->
+   <div class="comments">
+        <h2>Comments</h2>
+        <form id="comment-form">
+            <input type="text" id="comment-input" placeholder="Add your comment" required>
+            <button type="submit">Submit</button>
+        </form>
+        <ul class="comment-list">
+            <!-- Comments will be added here dynamically -->
+        </ul>
+    </div>
+    <div class="footer">
+       <p>MLRIT MINIPROJECT 2023</p>
+    </div>
     <script>
         window.addEventListener('keydown', function (e) {
             if (e.key === 'ArrowDown') {
@@ -424,6 +572,51 @@
         document.querySelector(".login").classList.add("active");
     }
 });
-    </script>
+    const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Comment Script
+        // Comment Script
+// Comment Script
+        const commentForm = document.getElementById('comment-form');
+        const commentInput = document.getElementById('comment-input');
+        const commentList = document.querySelector('.comment-list');
+
+        // Function to generate a random emoji
+        function getRandomEmoji() {
+            const emojis = ["😁", "😄", "😃", "😀", "😆", "😅", "🤣", "😂", "🙂", "🙃"];
+            return emojis[Math.floor(Math.random() * emojis.length)];
+        }
+
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                const commentItem = document.createElement('li');
+                const randomEmoji = getRandomEmoji();
+                commentItem.innerText = `${randomEmoji} : ${commentText}`;
+                commentList.appendChild(commentItem);
+
+                // Save the comment to local storage
+                const comments = JSON.parse(localStorage.getItem('comments')) || [];
+                comments.push(`${randomEmoji} : ${commentText}`);
+                localStorage.setItem('comments', JSON.stringify(comments));
+
+                commentInput.value = '';
+            }
+        });
+
+        // Load comments from local storage on page load
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        comments.forEach(commentText => {
+            const commentItem = document.createElement('li');
+            commentItem.innerText = commentText;
+            commentList.appendChild(commentItem);
+        });
+</script>
 </body>
 </html>
