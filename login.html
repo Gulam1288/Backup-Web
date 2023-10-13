@@ -3,11 +3,35 @@
 <head>
     <title>Login & Signup</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        html,body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
         body {
+            background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIRHjiafkyo0kbeAPrbRv6XzIY7dppgaFX6w&usqp=CAU); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: black;
+            display: flex;
+            flex-direction: column;
+        }
+        .body-home {
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 10px;
+        }
+        .div-container {
+            display: flex;
+            justify-content: left;
+            background-color: purple;
+            color: white;
+            padding: 15px 10px 15px;
+            height: 5vh;
+ 
         }
 
         h2 {
@@ -17,7 +41,7 @@
         .form-container {
             background-color: lavender;
             width: 300px;
-            margin: 200px auto auto auto;
+            margin: 150px auto 20px auto;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -44,14 +68,13 @@
             background-color: #0056a3;
         }
         
-.menu-button {
-        cursor: pointer;
-        display: inline-block;
-        -webkit-tap-highlight-color: transparent;
-	    user-select: none;
-	    background: black;
-	    width: 100%;
-    }
+        .menu-button {
+            cursor: pointer;
+            display: inline-block;
+            -webkit-tap-highlight-color: transparent;
+	          user-select: none;
+	          background: none;
+         }
 
     .bar {
         width: 25px;
@@ -138,15 +161,40 @@
             z-index: 1;
             display: none;
         }
+        
         .active a{
             background-color: #1e90ff;
             z-index:1;
         }
+        
+        .footer {
+            height: 120px;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .footer p {
+            font-size: 16px;
+        }
+        
+        .social-media a {
+            text-decoration: none;
+            color: white;
+            padding: 0; /* Remove padding */
+            margin: 0 2px; /* Add space between icons */
+   
+        }
+        main {
+          flex: 1;
+        }
     </style>
 </head>
 <body>
-<br>
-    <div class="menu-button" style="margin: 5px auto 5px 5px; float: left;">
+<main>
+<div class="div-container">
+    <div class="menu-button">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
@@ -162,6 +210,7 @@
         </ul>
 
     </div>
+</div>
     <div class="overlay"></div>
     <div class="form-container" id="signup-form">
         <h2>Sign Up</h2>
@@ -188,7 +237,30 @@
         <p>Remember your password? <a href="#" onclick="toggleForm('login')">Back to Login</a></p>
     </div>
     <p id="message" style="color: red;"></p>
-
+  </main>
+    <div class="footer">
+    <p>Connect with us on social media:</p>
+       <!-- Social media icons using FontAwesome -->
+       <div class="social-media">
+            <a>
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a>
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a>
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a>
+                <i class="fab fa-discord"></i>
+            </a>
+            <a>
+                <i class="fab fa-snapchat"></i>
+            </a>
+            <!-- Add more social media links and icons as needed -->
+        </div>
+    <p>MLRIT MINIPROJECT 2023</p>
+</div>
     <script>
         function toggleForm(formType) {
             var signupForm = document.getElementById('signup-form');
@@ -290,7 +362,7 @@ function login() {
             // Create a new element for the redirection message with a link
             var redirectMessage = document.createElement('p');
             redirectMessage.style.color = 'green';
-            redirectMessage.innerHTML = 'Redirecting to the project page.<br>If not redirected, <a href="chat.html" target="_blank" style="text-decoration: none;">click here</a>.';
+            redirectMessage.innerHTML = 'Redirecting to the project page.<br>If not redirected, <a href="chat.html" target="_blank" class="redirect">click here</a>.';
             document.getElementById('message').appendChild(redirectMessage);
 
             // Clear input fields
@@ -393,4 +465,4 @@ function login() {
 });
     </script>
 </body>
-  </html>
+</html>
