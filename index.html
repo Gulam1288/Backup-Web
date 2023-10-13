@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
    .menu-button {
         cursor: pointer;
@@ -65,14 +66,14 @@
         background: #5E819D;
     }
         body {
-            background: black; 
+            background: #ECFADC; 
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #fff;
+            color: black;
         }
         .body-home {
             background-color: rgba(0, 0, 0, 0.5); 
@@ -84,6 +85,7 @@
             justify-content: space-between;
             align-items: center;
             background-color: purple;
+            color: white;
         }
         .nav-link {
             margin-right: 10px;
@@ -193,7 +195,7 @@
             font-size: 16px;
         }
         .info-section {
-            background: maroon;
+            background: turquoise;
             padding: 20px;
             margin: 20px;
             border-radius: 10px;
@@ -201,11 +203,11 @@
         }
         .info-section h2 {
             font-size: 24px;
-            color: #fff;
+            color: black;
         }
         .info-section p {
             font-size: 18px;
-            color: #ddd;
+            color: black;
         }
         .image-gallery {
             width: 100%;
@@ -219,32 +221,23 @@
             height: 250px;
             border-radius: 10px;
             object-fit: cover;
-	    border: 2px solid white;
+	          border: 2px solid white;
         }
 
-        .thumbnail-images {
-            display: flex;
-            justify-content: center;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            margin: 5px;
-            cursor: pointer;
-            border-radius: 10px;
-            object-fit: cover;
-	    border: 2px solid yellow;
-        }
         .gates {
-            border-radius: 5px;
-            border: 5px solid black;
+            border-radius: 10px;
+            border: 2px solid grey;
             display: flex;
-            padding: 5px;
-            margin: 0;
-            background: black;
+            padding: 20px;
+            margin: 20px;
+            background: skyblue;
+        }
+        .social-media a {
+            text-decoration: none;
+            color: white;
+            padding: 0; /* Remove padding */
+            margin: 0 2px; /* Add space between icons */
+   
         }
     </style>
     <title>Home Page</title>
@@ -282,12 +275,8 @@
 </div>
 <div class="gates">
     <div class="image-gallery">
-        <img id="largeImage" class="large-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbVetUcmBVWjvIzxQNWKHvkBPZx5-sZI4lzw&usqp=CAU" alt="Large Image">
-        <div class="thumbnail-images">
-            <img class="thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbVetUcmBVWjvIzxQNWKHvkBPZx5-sZI4lzw&usqp=CAU" alt="Thumbnail 1" onclick="changeImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbVetUcmBVWjvIzxQNWKHvkBPZx5-sZI4lzw&usqp=CAU')">
-            <img class="thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoZwSq7JetLJzjjfmbSisiT-388lRpdozlZg&usqp=CAU" alt="Thumbnail 2" onclick="changeImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoZwSq7JetLJzjjfmbSisiT-388lRpdozlZg&usqp=CAU')">
-            <img class="thumbnail" src="https://www.radware.com/RadwareSite/MediaLibraries/Images/Cyberpedia/Bot%20Manager/types-of-bots.jpg" alt="Thumbnail 3" onclick="changeImage('https://www.radware.com/RadwareSite/MediaLibraries/Images/Cyberpedia/Bot%20Manager/types-of-bots.jpg')">
-        </div>
+        <img id="largeImage" class="large-image" src="https://www.radware.com/RadwareSite/MediaLibraries/Images/Cyberpedia/Bot%20Manager/types-of-bots.jpg" alt="Large Image">
+        <h4>Chatbots Redefining Customer Engagement</h4>
     </div>
 </div>
 <div class="info-section">
@@ -299,6 +288,26 @@
     <p>Feel free to reach out to us for any inquiries.</p>
 </div>
 <div class="footer">
+    <p>Connect with us on social media:</p>
+       <!-- Social media icons using FontAwesome -->
+       <div class="social-media">
+            <a>
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a>
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a>
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a>
+                <i class="fab fa-discord"></i>
+            </a>
+            <a>
+                <i class="fab fa-snapchat"></i>
+            </a>
+            <!-- Add more social media links and icons as needed -->
+        </div>
     <p>MLRIT MINIPROJECT 2023</p>
 </div>
 <script>
@@ -346,10 +355,6 @@
         document.querySelector(".login").classList.add("active");
     }
 });
-function changeImage(imageUrl) {
-            var largeImage = document.getElementById("largeImage");
-            largeImage.src = imageUrl;
-        }
 </script>
 </body>
 </html>
