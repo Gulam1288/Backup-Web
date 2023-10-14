@@ -5,6 +5,7 @@
     <title>Chatbot</title>
     <link rel="icon" type="image/png" href="https://0.gravatar.com/avatar/02891187c7c88597f2c60be545d7165b?s=500&d=mm&r=g">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         /* CSS styles for the chat interface */
         *, *:before, *:after {
@@ -402,6 +403,12 @@
             background-color: #1e90ff;
             z-index:1;
         }
+	.export-button {
+            background: purple;
+            color: white;
+            border: 2px solid white;
+	    border-radius: 8px;
+        }
     </style>
 </head>
 
@@ -426,7 +433,9 @@
             <input type="checkbox" id="theme-toggle-button" onclick="toggleTheme()">
             <span class="slider"></span>
         </label>
-        <span class="mode-label"><p style="text-decoration: none; color:purple;">about</p></span>
+        <button class="export-button" onclick="exportChat()">
+    		<i class="material-icons" title="Export Chat">save_alt</i>
+	</button>  
     </div>
     <div class="overlay"></div>
     <div class="chat-container" id="chat-container">
@@ -694,6 +703,35 @@ document.querySelector("#closeMenu").addEventListener("click", function () {
         document.querySelector(".login").classList.add("active");
     }
 });
+     function exportChat() {
+    // Get chat messages
+    const chatLog = document.getElementById("chat-log");
+    const chatMessages = chatLog.querySelectorAll(".message-container");
+
+    // Extract chat data and combine it
+    const chatText = Array.from(chatMessages, (message) => {
+        const username = message.querySelector(".username").innerText;
+        const messageText = message.innerText.replace(username, '').trim();
+        return `${username}: ${messageText}`;
+    }).join('\n');
+
+    // Create a blob with the chat text
+    const blob = new Blob([chatText], { type: 'text/plain' });
+
+    // Create a temporary URL to the blob
+    const url = window.URL.createObjectURL(blob);
+
+    // Create a temporary anchor element to trigger the download
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'chat.txt'; // Set the filename
+
+    // Trigger a click event on the anchor to initiate the download
+    a.click();
+
+    // Clean up
+    window.URL.revokeObjectURL(url);
+}
     </script>
 </body>
 
