@@ -25,7 +25,7 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            background: linear-gradient(130deg, #007bff, #fe2f30);
+            background: black;
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -101,10 +101,8 @@
   top: 0; /* Adjust the tail's position to the bottom of the message */
   transform: rotate(180deg);
 }
-
-
         .username-container {
-            display: block;
+            display: inline-block;
             align-items: center;
             margin-right: 10px;
         }
@@ -126,11 +124,11 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            background-color: #F8EFEC;
+            background-color: #fff;
             border-radius: 0 0 15px 15px;
             width: 80%;
             margin: 0 auto;
-	      box-shadow: 0px 0px 5px 0px #ccc;
+	    box-shadow: 0px 0px 5px 0px #ccc;
         }
 
         .user-input {
@@ -139,11 +137,11 @@
             border: 1px;
             border-radius: 5px;
             background-color: rgba(0, 0, 0, 0.1);
-            resize: none;
-    		overflow-y: auto;
-    		white-space: pre-line;
+	    resize: none; /* Allow vertical resizing */
+	    overflow-y: auto;
+	    white-space: normal;
             word-wrap: break-word;
-    		max-height: 36px;
+    	    max-height: 36px;
         }
 
         .send-button {
@@ -196,7 +194,6 @@
             background-color: rgba(0, 0, 0, 0.4);
             color: #5F00CD; /* Change text color to purple in dark mode */
         }
-
 	  /* Apply dark mode effect over the background image */
 	.chat-container.dark-mode {
     	    background: url(https://wallpapercave.com/wp/wp4673203.jpg);
@@ -204,18 +201,18 @@
             background-size: cover;
 	    object-fit: cover;
 	}
-      
+
         /* Styles for the theme toggle switch */
         .theme-toggle-container {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 5px 5px 5px 5px;
+            padding: 5px 15px 5px 5px;
             background-color: purple;
-            border-radius: 5px;
+            border-radius: 0px;
             box-shadow: 0px 0px 5px 0px #ccc;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .mode-label {
@@ -280,13 +277,10 @@
                 height: 65%; /* Set a full height for chat container on small screens */
 	        object-fit: cover;
             }
-
             .message-input-container {
                 flex-direction: column; /* Stack buttons below the input field on small screens */
                 width: 85%;
-                height: 50%;
             }
-
             .user-input {
                 width: 85%; /* Full width for the input field */
                 margin: 10px 0 2px 8px; /* Add some margin to separate the input and buttons */
@@ -301,18 +295,22 @@
                 height: 100%;
             }
 	    .box-5 {
-		margin: auto auto 50% auto;
+		margin: auto auto 70% auto;
 	     }
 	}
 	  
-	 .menu-button {
+	.theme-switch {
+             -webkit-tap-highlight-color: transparent;
+             tap-highlight-color: transparent;
+         }
+    .menu-button {
         cursor: pointer;
         display: inline-block;
         -webkit-tap-highlight-color: transparent;
 	    user-select: none;
 	    float: left;
-	    margin-top: 10px;
-	    margin-bottom: 10px;
+	    margin-top: 15px;
+	    margin-bottom: 15px;
     }
 
     .bar {
@@ -403,14 +401,13 @@
         .active a{
             background-color: #1e90ff;
             z-index:1;
-        }  
-         
+        }
     </style>
 </head>
 
 <body>
     <div class="theme-toggle-container">
-        <div class="menu-button">
+    <div class="menu-button">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
@@ -418,23 +415,22 @@
     <div class="side-menu">
         <ul>
              <li><p class="cross" id="closeMenu">X</p></li>
-            <li class="li home"<><a href="/"><strong>Home</strong></a></li>
-	    <li class="li login"><a href="/login"><strong>Login</strong></a></li>
-            <li class="li chatbot"><a href="/bot"><strong>Chatbot</strong></a></li>
+            <li class="li home"<><a href="index.html"><strong>Home</strong></a></li>
+	    <li class="li login"><a href="login.html"><strong>Login</strong></a></li>
+            <li class="li chatbot"><a href="chatbot.html"><strong>Chatbot</strong></a></li>
             <li class="li about"><a href="about.html"><strong>About</strong></a></li>
-            <li class="li logout"><a href="/"><strong>Logout</strong></a></li>
+            <li class="li logout"><a href="index.html"><strong>Logout</strong></a></li>
         </ul>
     </div>
         <label class="theme-switch">
             <input type="checkbox" id="theme-toggle-button" onclick="toggleTheme()">
             <span class="slider"></span>
         </label>
-        <span class="mode-label"><p style="text-decoration: none; color:purple;">about</p></span>
+        <h5>‎ ‎ ‎ ‎ ‎ ‎ </h5>
     </div>
     <div class="overlay"></div>
     <div class="chat-container" id="chat-container">
-	  <div class="note box-5" style="display: block; margin: auto auto 45% auto; background: white; border-radius: 10px; padding: 10px; width: 34.5%;">
-         <span id="message-text"></span> 
+	  <div class="note box-5" id="typing-container" style="display: block; margin: auto auto 45% auto; background: white; border-radius: 10px; padding: 10px;">
           </div>
 
         <div class="chat-log" id="chat-log">
@@ -442,7 +438,7 @@
         </div>
     </div>
     <div class="message-input-container">
-        <textarea class="user-input" id="user-input" placeholder="Type your message..." oninput="adjustTextArea(this)"></textarea>
+        <textarea type="text" class="user-input" id="user-input" placeholder="Type your message..." onkeyup="checkEnterKey(event)"></textarea>
         <button class="send-button" onclick="sendMessage()">Send</button>
         <button class="feedback-button" onclick="provideFeedback()">Provide Answer</button>
     </div>
@@ -508,68 +504,56 @@
         }
 
         // Define a list of authorized keys
-        var authorizedKeys = ["xyz680","qaz234"]; // Add your initial key
-        var users = ["xyz","qaz"];
-        function isAuthorized(userKey) {
-	    return authorizedKeys.includes(userKey);
-        }
-        function Authorized(user) {
-	    return users.includes(user);
+        var authorizedUsers = {
+             "xyz": "xyz680",
+             "qaz": "qaz234"
+        };
+
+        function isAuthorized(user, key) {
+              return authorizedUsers[user] === key;
         }
 
 	function provideFeedback() {
-          var user = prompt("Enter your authorization name:");  // Prompt the user for the key
-          if(user === null) {
-              return;
-          }
-    	    if (!Authorized(user)) {
-		    alert("Invalid user");
-                return;
-          }
-    	    var userKey = prompt("Enter your authorization key:");  // Prompt the user for the key
-           if (!isAuthorized(userKey)) {
-		    alert("Invalid user key");
-                return;
-          }
-	    if (users.indexOf(user) === authorizedKeys.indexOf(userKey)) {
-	        // User is authorized to provide feedback
-	        var feedback = prompt("Did the bot's response answer your question? (yes/no/y/n): ").toLowerCase();
-	        if (feedback === 'no' || feedback === 'n') {
-	            var correctResponse = prompt("Please provide the correct answer : ");
-	            if (correctResponse.toLowerCase() === 'same as previous' || correctResponse.toLowerCase() === 'sap') {
-	                // Reuse the previous response
-	                correctResponse = previous_response;
-	            } else {
-	                // Capture the user message
-	                var userMessage = userInputElement.value;
-	
-	                // Set the previous question and response
-	                previous_question = userMessage;
-	                previous_response = correctResponse;
-	            }
-	
-	            // Send the user message, bot response, and feedback to the server
-	            var xhr = new XMLHttpRequest();
-	            xhr.open("POST", "/provide_feedback", true);
-	            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	
-	            // Send the user message, bot response, and feedback as data
-	            xhr.send("user_message=" + encodeURIComponent(previous_question) + "&bot_response=" + encodeURIComponent(correctResponse) + "&feedback=" + encodeURIComponent(feedback));
-	
-	            // Alert the user
-	            alert("Thank you for your feedback. We will use this information to improve our responses.");
-	        }
-	        else if(feedback === 'yes' || feedback === 'y') {
-			alert("Glad to hear that!")
-		  }
-		  else {
-	            alert("You are not authorized to give feedback.");
-	        }
-	    } else {
-	        alert("Invalid authorization key or username. You are not authorized to give feedback.");
-	    }
-	}
-	    
+              var user = prompt("Enter your authorization name:");
+	      if (user === null || user === "") {
+              // User canceled or didn't provide a username
+                  return;
+              }
+              var userKey = prompt("Enter your authorization key:");
+              if (userKey === null || userKey === "") {
+              // User canceled or didn't provide a userkey
+                  return;
+               }
+         if (isAuthorized(user, userKey)) {
+              var feedback = prompt("Did the bot's response answer your question? (yes/no/y/n): ").toLowerCase();
+
+        if (feedback === 'no' || feedback === 'n') {
+            var correctResponse = prompt("Please provide the correct answer: ");
+            if (correctResponse.toLowerCase() === 'same as previous' || correctResponse.toLowerCase() === 'sap') {
+                correctResponse = previous_response;
+            } else {
+                var userMessage = userInputElement.value;
+                previous_question = userMessage;
+                previous_response = correctResponse;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/provide_feedback", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.send("user_message=" + encodeURIComponent(previous_question) + "&bot_response=" + encodeURIComponent(correctResponse) + "&feedback=" + encodeURIComponent(feedback));
+
+            alert("Thank you for your feedback. We will use this information to improve our responses.");
+        } else if (feedback === 'yes') {
+            alert("Glad to hear that!");
+        } else {
+            alert("Invalid feedback response.");
+        }
+    } else {
+        alert("Invalid authorization key or username. You are not authorized to give feedback.");
+    }
+}
+
 	function checkNoteVisibility() {
 	     var note = document.querySelector(".note");
     	     var chatLog = document.getElementById("chat-log");
@@ -586,57 +570,32 @@
         }
 
         // Event listener for Enter key
-        // Get the textarea element
-var userInputElement = document.getElementById("user-input");
+        function checkEnterKey(event) {
+            if (event.keyCode === 13) {
+                sendMessage();
+            }
+        }
+        // Typing animation function
+function typeMessage() {
+    var typingContainer = document.getElementById("typing-container");
+    var message = "Type your messages in the message box and send ";
+    var messageIndex = 0;
+    var imageSource = "https://www.shareicon.net/data/2016/06/06/776875_logo_512x512.png";
 
-// Function to adjust the input field size
-function adjustInputSize() {
-    userInputElement.style.height = "auto";  // Reset the height
-    userInputElement.style.height = (userInputElement.scrollHeight) + "px";
+    function addCharacter() {
+        if (messageIndex < message.length) {
+            typingContainer.innerHTML += message.charAt(messageIndex);
+            messageIndex++;
+            setTimeout(addCharacter, 50); // Adjust the time interval for typing speed
+        } else {
+            // Display the image after typing the full message
+            typingContainer.innerHTML += `<img src="${imageSource}" style="height:12px; width:12px; object-fit:cover;">`;
+        }
+    }
+
+    addCharacter();
 }
 
-// Call the adjustInputSize function when typing
-userInputElement.addEventListener("input", adjustInputSize);
-
-// Call the adjustInputSize function when the page loads
-window.addEventListener("load", adjustInputSize);
-
-// Event listener for Enter key
-userInputElement.addEventListener("keydown", function (event) {
-    if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-        sendMessage();
-    }
-});
-
-
-        // Typing animation function
- function typeMessage() {
-            var typingContainer = document.getElementById("message-text"); // Target the message-text span
-            var message = "Type your messages in the message box and send ";
-            var messageIndex = 0;
-            var imageSource = "https://www.shareicon.net/data/2016/06/06/776875_logo_512x512.png";
-
-            function addCharacter() {
-                if (messageIndex < message.length) {
-                    typingContainer.innerHTML += message.charAt(messageIndex);
-                    messageIndex++;
-                    setTimeout(addCharacter, 50); // Adjust the time interval for typing speed
-                } else {
-                    // Display the image after typing the full message
-                    typingContainer.innerHTML += `<img src="${imageSource}" style="height:12px; width:12px; object-fit:cover;">`;
-
-                    // Wait for 2 seconds after typing the full message, then clear and restart
-                    setTimeout(function () {
-                        typingContainer.innerHTML = "";
-                        messageIndex = 0;
-                        addCharacter();
-                    }, 2000); // Adjust the time to wait in milliseconds
-                }
-            }
-
-            addCharacter();
-        }
 
 // Function to simulate typing for the placeholder
 function typePlaceholder() {
@@ -667,8 +626,6 @@ window.onload = function () {
     typeMessage(); // Start the message typing animation
     typePlaceholder(); // Start the placeholder typing animation
 };
-
-
 document.querySelector("#closeMenu").addEventListener("click", function () {
         document.querySelector(".side-menu").style.left = "-350px";
         document.querySelector(".overlay").style.display = "none"; // Hide the overlay
@@ -706,5 +663,4 @@ document.querySelector("#closeMenu").addEventListener("click", function () {
 });
     </script>
 </body>
-
 </html>
