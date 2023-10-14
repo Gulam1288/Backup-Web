@@ -74,8 +74,7 @@
             margin: 0;
             padding: 0;
             color: black;
-	    overflow: hidden;
-	    overflow-y: auto;
+            overflow: hidden;
         }
         .body-home {
             background-color: rgba(0, 0, 0, 0.5); 
@@ -216,6 +215,9 @@
             text-align: center;
             object-fit: cover;
             border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
         }
 
         .large-image {
@@ -223,7 +225,7 @@
             height: 250px;
             border-radius: 10px;
             object-fit: cover;
-	          border: 2px solid white;
+	      border: 2px solid white;
         }
 
         .gates {
@@ -244,6 +246,22 @@
 	.social-media a:hover {
             color: #0074cc; /* Change the color on hover */
 	}
+      .imgcap {
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px;
+       }
+       @media (max-width: 768px) {
+            .image-gallery {
+	            width: 100%;
+	            text-align: center;
+	            object-fit: cover;
+	            border-radius: 10px;
+	            display: flex;
+	            flex-direction: column;
+	            justify-content: space-between;
+             }
+       }
     </style>
     <title>Home Page</title>
     <link rel="icon" type="image/png" href="https://sites.ipagepro.com/minsky-cottone-cpas-pc/wp-content/uploads/sites/231/2022/12/google.png">
@@ -280,8 +298,18 @@
 </div>
 <div class="gates">
     <div class="image-gallery">
+        <div class="imgcap" >
+        <img id="largeImage" class="large-image" src="https://th.bing.com/th/id/OIP.67POgPG_cHr19yUPjIRGsAHaEJ?w=285&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Large Image">
+        <h4>Elevate Your Conversations with Our Chatbot</h4>
+	  </div>
+        <div class="imgcap" >
         <img id="largeImage" class="large-image" src="https://www.radware.com/RadwareSite/MediaLibraries/Images/Cyberpedia/Bot%20Manager/types-of-bots.jpg" alt="Large Image">
         <h4>Chatbots Redefining Customer Engagement</h4>
+	  </div>
+        <div class="imgcap" >
+        <img id="largeImage" class="large-image" src="https://www.mii.co.id/-/media/20190203_call-blitz-chatbot-3dolphin/chatbot_feb2019.jpg" alt="Large Image">
+        <h4>Your 24/7 Chatbot Companion</h4>
+	  </div>
     </div>
 </div>
 <div class="info-section">
