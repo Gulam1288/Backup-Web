@@ -415,11 +415,11 @@
     <div class="side-menu">
         <ul>
              <li><p class="cross" id="closeMenu">X</p></li>
-            <li class="li home"<><a href="/"><strong>Home</strong></a></li>
-	    <li class="li login"><a href="/login"><strong>Login</strong></a></li>
-            <li class="li chatbot"><a href="/bot"><strong>Chatbot</strong></a></li>
+            <li class="li home"<><a href="index.html"><strong>Home</strong></a></li>
+	    <li class="li login"><a href="login.html"><strong>Login</strong></a></li>
+            <li class="li chatbot"><a href="chatbot.html"><strong>Chatbot</strong></a></li>
             <li class="li about"><a href="about.html"><strong>About</strong></a></li>
-            <li class="li logout"><a href="/"><strong>Logout</strong></a></li>
+            <li class="li logout"><a href="index.html"><strong>Logout</strong></a></li>
         </ul>
     </div>
         <label class="theme-switch">
@@ -691,13 +691,13 @@ document.querySelector("#closeMenu").addEventListener("click", function () {
     var currentPage = window.location.href;
 
     // Add the "active" class to the corresponding link based on the URL
-    if (currentPage.includes("/")) {
+    if (currentPage.includes("index.html")) {
         document.querySelector(".home").classList.add("active");
     } else if (currentPage.includes("about.html")) {
         document.querySelector(".about").classList.add("active");
-    } else if (currentPage.includes("/bot")) {
+    } else if (currentPage.includes("chatbot.html")) {
         document.querySelector(".chatbot").classList.add("active");
-    } else if (currentPage.includes("/login")) {
+    } else if (currentPage.includes("login.html")) {
         document.querySelector(".login").classList.add("active");
     }
 });
