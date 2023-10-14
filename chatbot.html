@@ -102,7 +102,7 @@
   transform: rotate(180deg);
 }
         .username-container {
-            display: block;
+            display: inline-block;
             align-items: center;
             margin-right: 10px;
         }
@@ -208,11 +208,11 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0px 15px 0px 5px;
+            padding: 2px 15px 2px 5px;
             background-color: purple;
             border-radius: 0px;
             box-shadow: 0px 0px 5px 0px #ccc;
-            
+            margin-bottom: 5px;
         }
 
         .mode-label {
@@ -309,8 +309,8 @@
         -webkit-tap-highlight-color: transparent;
 	    user-select: none;
 	    float: left;
-	    margin-top: 5px;
-	    margin-bottom: 5px;
+	    margin-top: 10px;
+	    margin-bottom: 10px;
     }
 
     .bar {
@@ -418,7 +418,7 @@
             <li class="li home"<><a href="/"><strong>Home</strong></a></li>
 	    <li class="li login"><a href="/login"><strong>Login</strong></a></li>
             <li class="li chatbot"><a href="/bot"><strong>Chatbot</strong></a></li>
-            <li class="li about"><a href="/details"><strong>About</strong></a></li>
+            <li class="li about"><a href="about.html"><strong>About</strong></a></li>
             <li class="li logout"><a href="/"><strong>Logout</strong></a></li>
         </ul>
     </div>
@@ -653,7 +653,7 @@ document.querySelector("#closeMenu").addEventListener("click", function () {
     // Add the "active" class to the corresponding link based on the URL
     if (currentPage.includes("/")) {
         document.querySelector(".home").classList.add("active");
-    } else if (currentPage.includes("/details")) {
+    } else if (currentPage.includes("about.html")) {
         document.querySelector(".about").classList.add("active");
     } else if (currentPage.includes("/bot")) {
         document.querySelector(".chatbot").classList.add("active");
