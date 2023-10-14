@@ -622,13 +622,6 @@ userInputElement.addEventListener("keydown", function (event) {
                 } else {
                     // Display the image after typing the full message
                     typingContainer.innerHTML += `<img src="${imageSource}" style="height:12px; width:12px; object-fit:cover;">`;
-
-                    // Wait for 2 seconds after typing the full message, then clear and restart
-                    setTimeout(function () {
-                        typingContainer.innerHTML = "";
-                        messageIndex = 0;
-                        addCharacter();
-                    }, 2000); // Adjust the time to wait in milliseconds
                 }
             }
 
