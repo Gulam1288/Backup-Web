@@ -728,11 +728,15 @@ document.querySelector("#closeMenu").addEventListener("click", function () {
     a.download = 'chat.txt'; // Set the filename
 
     // Trigger a click event on the anchor to initiate the download
+    a.style.display = 'none'; // Hide the anchor
+    document.body.appendChild(a); // Append anchor to the DOM
     a.click();
+    document.body.removeChild(a); // Remove anchor from the DOM
 
     // Clean up
     window.URL.revokeObjectURL(url);
 }
+
     </script>
 </body>
 
