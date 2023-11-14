@@ -192,39 +192,6 @@ def history():
 def logout():
     return render_template('logout.html')
 
-account_sid = 'ACa3d48f183edb1fcf3f0f9ab3f6b94c83'
-auth_token = '8ba39dbd48f619e334d9e8c7ce1b36a3'
-twilio_phone_number = '+12253417132'
-your_phone_number = '+919908065462'
-
-client = Client(account_sid, auth_token)
-
-@app.route('/submit_form', methods=['POST'])
-def submit_form():
-    try:
-        name = request.form.get('name')
-        email = request.form.get('email')
-        message = request.form.get('message')
-
-        if name and email and message:
-            with open("form_data.txt", "a") as file:
-                file.write(f"Name: {name}\nEmail: {email}\nMessage: {message}\n\n")
-
-            # Send SMS using Twilio
-            message_body = f'New Form Submission from {name}. \nEmail: {email} \nMessage: {message}'
-            client.messages.create(
-                body=message_body,
-                from_=twilio_phone_number,
-                to=your_phone_number
-            )
-
-            return Response("Data submitted successfully! We will respond soon.", content_type='text/plain')
-
-        return Response("Data submission failed.", content_type='text/plain')
-
-    except Exception as e:
-        return Response(f"Internal Server Error. {e}", content_type='text/plain')
-
 @app.route('/send_message', methods=['POST'])
 def send_message():
     user_message = request.form.get('user_message')
