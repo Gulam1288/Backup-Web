@@ -15,9 +15,9 @@ EXIT_RESPONSES = ["Bye","See you later!","Good bye!","Hope to see you again"]
 previous_question = ""
 previous_response = ""
 
-feedback_file_path = "/home/VXBot/mysite/supervised_learning.txt"
-comments_file = "/home/VXBot/mysite/comments.txt"
-with open("/home/VXBot/mysite/dataset.json", "r") as file:
+feedback_file_path = "supervised_learning.txt"
+comments_file = "comments.txt"
+with open("dataset.json", "r") as file:
     global dataset
     dataset = json.load(file)
 
@@ -207,7 +207,7 @@ def submit_form():
         message = request.form.get('message')
 
         if name and email and message:
-            with open("/home/VXBot/mysite/form_data.txt", "a") as file:
+            with open("form_data.txt", "a") as file:
                 file.write(f"Name: {name}\nEmail: {email}\nMessage: {message}\n\n")
 
             # Send SMS using Twilio
@@ -234,7 +234,7 @@ def send_message():
         # Process the feedback
         if feedback:
             # Save the feedback to the drawbacks.txt file
-            with open("/home/VXBot/mysite/drawbacks.txt", "a") as drawbacks_file:
+            with open("drawbacks.txt", "a") as drawbacks_file:
                 drawbacks_file.write(feedback + "\n")
             # Respond with a confirmation message
             return jsonify({"bot_response": "Thank you for your feedback."})
@@ -263,7 +263,7 @@ def send_message():
     return jsonify({"bot_response": bot_response, "has_feedback": has_feedback})
 
 
-data_directory = "/home/VXBot/mysite/data"  # Directory to store user data files
+data_directory = "data"  # Directory to store user data files
 
 @app.route('/signup', methods=['POST'])
 def signup():
